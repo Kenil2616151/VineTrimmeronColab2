@@ -1,0 +1,9 @@
+{
+"name": "generic_4464_l3",
+"description": "android generic 4464 l3",
+"security_level": 3,
+"session_id_type": "android",
+"private_key_available": "True",
+"vmp": "False",
+"send_key_control_nonce": "True"
+}

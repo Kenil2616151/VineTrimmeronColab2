@@ -1,0 +1,97 @@
+# This is an example config file. You should copy it to the appropriate directory for your platform
+# and adjust values if necessary (see the README for details on where to put it).
+
+# Override default values for arguments
+arguments:
+  alang: 'hu,orig'
+  slang: 'hu,all'
+
+  Amazon:
+    audio_quality: 'SD'
+
+aria2c:
+  file_allocation: 'falloc'
+
+# Local CDM device to use for decryption. Can be specified per-service and per-profile.
+cdm:
+  default: 'android_klp_x86'
+  Amazon: 'xxx'
+
+  #Amazon:
+  #  us: 'xxx'
+
+# Remote CDM API to use for decryption
+cdm_api:
+  - name: 'API'
+    host: 'https://api.example.com'
+    key: 'xxx'
+    device: 'xxx'
+    type: ''  # ANDROID or CHROME
+    system_id: 1234
+    security_level: 1
+
+# Login details for each service
+credentials:
+  Netflix: 'email:password'  # single profile
+
+  iTunes:  # multiple profiles
+    us: 'email:password'
+    gb: 'email:password'
+
+  DisneyNOW: 'email:password:provider'  # extra data
+
+  Stan: ['email', 'pass:word']  # password with colon
+
+# Decrypter to use (packager or mp4decrypt)
+decrypter: 'packager'
+
+directories:
+  # Default temp dir:
+  #   Windows: %LOCALAPPDATA%\Temp\vinetrimmer or C:\TEMP\vinetrimmer
+  #   macOS/Linux: /var/tmp
+  temp: ''
+  downloads: '~/Downloads/vinetrimmer'
+
+# SQL databases to cache content keys to
+key_vaults:
+  - type: 'local'
+    name: 'Local'
+    path: '{data_dir}/key_store.db'
+
+  #- type: 'remote'
+  #  name: 'Example Vault'
+  #  host: '127.0.0.1'
+  #  database: 'vault'
+  #  username: ''
+  #  password: ''
+
+# If you use NordVPN, you can use this to automatically generate a proxy string.
+# The credentials should be your service credentials, not account credentials
+# (https://my.nordaccount.com/dashboard/nordvpn/ -> Advanced configuration).
+nordvpn:
+  username: ''
+  password: ''
+  #servers:
+  #  us: 12
+
+# Customize output filenames
+output_template:
+  movies: '{title}.{year}.{quality}.{source}.WEB-DL.{audio}.{video}-{tag}'
+  series: '{title}.{season_episode}.{episode_name}.{quality}.{source}.WEB-DL.{audio}.{video}-{tag}'
+  # If this is false, the first audio track will be used to determine what audio tag to use.
+  # If it's true, the last audio track will be used instead.
+  use_last_audio: false
+
+# Default profile to use for each service
+profiles:
+  default: 'default'
+
+# A list of proxies that can be used with --proxy.
+# Note: UK should be "gb", not "uk".
+proxies:
+  us: 'http://username:password@example.com:8080'
+
+# Group tag to add to releases
+tag: ''
+# Use a different tag for SD (leave blank to use the same)
+tag_sd: ''

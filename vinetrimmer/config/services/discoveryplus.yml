@@ -1,0 +1,4 @@
+endpoints:
+  show: 'https://us1-prod-direct.discoveryplus.com/cms/routes/show/{title_id}?include=default&decorators=viewingHistory,isFavorite,playbackAllowed'
+  video_playback_info: 'https://us1-prod-direct.discoveryplus.com/playback/v3/videoPlaybackInfo'
+  license: 'https://content-discovery.uplynk.com/wv'

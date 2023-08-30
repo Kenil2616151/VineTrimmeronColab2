@@ -1,0 +1,145 @@
+certificate: |
+   CAUSwwUKvQIIAxIQ5US6QAvBDzfTtjb4tU/7QxiH8c+TBSKOAjCCAQoCggEBAObzvlu2hZRsapAPx4Aa4GUZj4/GjxgXUtBH4THSkM40x63wQeyVxlEEo
+   1D/T1FkVM/S+tiKbJiIGaT0Yb5LTAHcJEhODB40TXlwPfcxBjJLfOkF3jP6wIlqbb6OPVkDi6KMTZ3EYL6BEFGfD1ag/LDsPxG6EZIn3k4S3ODcej6YSz
+   G4TnGD0szj5m6uj/2azPZsWAlSNBRUejmP6Tiota7g5u6AWZz0MsgCiEvnxRHmTRee+LO6U4dswzF3Odr2XBPD/hIAtp0RX8JlcGazBS0GABMMo2qNfCi
+   SiGdyl2xZJq4fq99LoVfCLNChkn1N2NIYLrStQHa35pgObvhwi7ECAwEAAToQdGVzdC5uZXRmbGl4LmNvbRKAA4TTLzJbDZaKfozb9vDv5qpW5A/DNL9g
+   bnJJi/AIZB3QOW2veGmKT3xaKNQ4NSvo/EyfVlhc4ujd4QPrFgYztGLNrxeyRF0J8XzGOPsvv9Mc9uLHKfiZQuy21KZYWF7HNedJ4qpAe6gqZ6uq7Se7f
+   2JbelzENX8rsTpppKvkgPRIKLspFwv0EJQLPWD1zjew2PjoGEwJYlKbSbHVcUNygplaGmPkUCBThDh7p/5Lx5ff2d/oPpIlFvhqntmfOfumt4i+ZL3fFa
+   ObvkjpQFVAajqmfipY0KAtiUYYJAJSbm2DnrqP7+DmO9hmRMm9uJkXC2MxbmeNtJHAHdbgKsqjLHDiqwk1JplFMoC9KNMp2pUNdX9TkcrtJoEDqIn3zX9
+   p+itdt3a9mVFc7/ZL4xpraYdQvOwP5LmXj9galK3s+eQJ7bkX6cCi+2X+iBmCMx4R0XJ3/1gxiM5LiStibCnfInub1nNgJDojxFA3jH/IuUcblEf/5Y0s
+   1SzokBnR8V0KbA==
+
+
+esn_map:
+  # key map of CDM WVD `SystemID = 'ESN you want to use for that CDM WVD'`
+  4464: 'NFANDROID1-PRV-P-GOOGLEPIXEL'  # chromecdm 1610 with Google Chrome Windows ESN, real client ID
+endpoints:
+  website: 'https://www.netflix.com/nq/website/memberapi/{build_id}/pathEvaluator'
+  manifest: 'https://www.netflix.com/nq/msl_v1/cadmium/pbo_licenses/^1.0.0/router?reqName=manifest'
+  licence: 'https://www.netflix.com/nq/msl_v1/cadmium/pbo_licenses/^1.0.0/router'
+  metadata: 'https://www.netflix.com/nq/website/memberapi/{build_id}/metadata'
+  # https://www.netflix.com/msl/playapi/cadmium/logblob/1?reqAttempt=1&reqPriority=0&reqName=logblob
+  # possibly newer api? seems to work fine on handshaking, rest untested
+
+configuration:
+  drm_system: 'widevine'  # chrome and android: widevine, edge: playready
+  drm_version: 25  # widevine: 25, playready: 30
+  supported_hdcp_versions: ['2.2']  # 720p-max: 1.4, chrome: empty, 4k: 2.2
+  is_hdcp_engaged: true  # chrome: false
+
+profiles:
+  video:
+    H264:
+      BPL:
+        - 'playready-h264bpl30-dash'
+
+      MPL:
+        - 'playready-h264mpl30-dash'
+        - 'playready-h264mpl31-dash'
+        - 'playready-h264mpl40-dash'
+
+      HPL:
+        - 'playready-h264hpl30-dash'
+        - 'playready-h264hpl31-dash'
+        - 'playready-h264hpl40-dash'
+
+    H265:
+      SDR:
+         - 'hevc-main10-L30-dash-cenc-prk'
+         - 'hevc-main10-L30-dash-cenc-prk-do'
+         - 'hevc-main10-L31-dash-cenc-prk'
+         - 'hevc-main10-L31-dash-cenc-prk-do'
+         - 'hevc-main10-L40-dash-cenc-prk'
+         - 'hevc-main10-L40-dash-cenc-prk-do'
+         - 'hevc-main10-L41-dash-cenc-prk'
+         - 'hevc-main10-L41-dash-cenc-prk-do'
+         - 'hevc-main10-L50-dash-cenc'
+         - 'hevc-main10-L50-dash-cenc-prk-do'
+
+      HDR10:
+         - 'hevc-hdr-main10-L30-dash-cenc-prk'
+         - 'hevc-hdr-main10-L31-dash-cenc-prk'
+         - 'hevc-hdr-main10-L40-dash-cenc-prk'
+         - 'hevc-hdr-main10-L41-dash-cenc-prk'
+         - 'hevc-hdr-main10-L50-dash-cenc-prk'
+
+      DV:
+         - 'hevc-dv5-main10-L30-dash-cenc-prk'
+         - 'hevc-dv5-main10-L31-dash-cenc-prk'
+         - 'hevc-dv5-main10-L40-dash-cenc-prk'
+         - 'hevc-dv5-main10-L41-dash-cenc-prk'
+         - 'hevc-dv5-main10-L50-dash-cenc-prk'
+
+    AV1:
+      - 'av1-main-L30-dash-cbcs'
+      - 'av1-main-L30-dash-cbcs-prk'
+      - 'av1-main-L31-dash-cbcs'
+      - 'av1-main-L31-dash-cbcs-prk'
+      - 'av1-main-L40-dash-cbcs'
+      - 'av1-main-L40-dash-cbcs-prk'
+      - 'av1-main-L41-dash-cbcs'
+      - 'av1-main-L41-dash-cbcs-prk'
+      - 'av1-main-L50-dash-cbcs'
+      - 'av1-main-L50-dash-cbcs-prk'
+      - 'av1-main-L51-dash-cbcs'
+      - 'av1-main-L51-dash-cbcs-prk'
+
+    VP9:
+      P0:
+         - 'vp9-profile0-L30-dash-cenc'
+         - 'vp9-profile0-L30-dash-cenc-prk'
+         - 'vp9-profile0-L31-dash-cenc'
+         - 'vp9-profile0-L31-dash-cenc-prk'
+         - 'vp9-profile0-L40-dash-cenc'
+         - 'vp9-profile0-L40-dash-cenc-prk'
+         - 'vp9-profile0-L41-dash-cenc'
+         - 'vp9-profile0-L41-dash-cenc-prk'
+
+      P1:
+         - 'vp9-profile1-L30-dash-cenc'
+         - 'vp9-profile1-L30-dash-cenc-prk'
+         - 'vp9-profile1-L31-dash-cenc'
+         - 'vp9-profile1-L31-dash-cenc-prk'
+         - 'vp9-profile1-L40-dash-cenc'
+         - 'vp9-profile1-L40-dash-cenc-prk'
+         - 'vp9-profile1-L41-dash-cenc'
+         - 'vp9-profile1-L41-dash-cenc-prk'
+
+      P2:
+         - 'vp9-profile2-L30-dash-cenc'
+         - 'vp9-profile2-L30-dash-cenc-prk'
+         - 'vp9-profile2-L31-dash-cenc'
+         - 'vp9-profile2-L31-dash-cenc-prk'
+         - 'vp9-profile2-L40-dash-cenc'
+         - 'vp9-profile2-L40-dash-cenc-prk'
+         - 'vp9-profile2-L41-dash-cenc'
+         - 'vp9-profile2-L41-dash-cenc-prk'
+
+      HDR10:
+         - 'vp9-hdr-profile2-L30-dash-cenc-prk'
+         - 'vp9-hdr-profile2-L31-dash-cenc-prk'
+         - 'vp9-hdr-profile2-L40-dash-cenc-prk'
+         - 'vp9-hdr-profile2-L41-dash-cenc-prk'
+         - 'vp9-hdr-profile2-L50-dash-cenc-prk'
+         - 'vp9-hdr-profile2-L51-dash-cenc-prk'
+  audio:
+    AAC:
+      - 'heaac-2-dash'
+      - 'heaac-2hq-dash'
+      - 'heaac-5.1-dash'
+
+    AC3:
+      - 'dd-5.1-dash'
+
+    EC3:
+      - 'ddplus-2.0-dash'
+      - 'ddplus-5.1-dash'
+      - 'ddplus-5.1hq-dash'
+      - 'ddplus-atmos-dash'
+
+    VORB:
+      - 'playready-oggvorbis-2-dash'
+      - 'playready-oggvorbis-5-dash'
+
+  subtitles:
+    - 'webvtt-lssdh-ios8'

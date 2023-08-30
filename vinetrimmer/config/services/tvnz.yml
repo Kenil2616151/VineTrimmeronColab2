@@ -1,0 +1,12 @@
+auth0_client:
+  name: 'auth0.js'
+  version: '9.11.3'
+
+client_id: 'LnDAd4mARcCg8VnOhNmr22el46J91FmS'
+
+endpoints:
+  login: 'https://login.tvnz.co.nz/co/authenticate'
+  authorize: 'https://login.tvnz.co.nz/authorize'
+  base: 'https://apis-edge-prod.tech.tvnz.co.nz'
+  shows: 'https://apis-edge-prod.tech.tvnz.co.nz/api/v1/web/play/page/shows/{title_id}'
+  play: 'https://apis-edge-prod.tech.tvnz.co.nz/api/v1/web/play/page/shows/{title_id}/episodes/s{season}-e{episode}'

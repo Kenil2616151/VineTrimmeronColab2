@@ -1,0 +1,5 @@
+# This is an example user config file. Shown values are guided *examples* only!
+
+# https://service.privilegemovies.com/content/v6/apikey/39-3-ca770?deviceModel=null&softwareVersion=null
+api_key: 'xnhmx6ak4kypz6my'
+device_id: '...' # https://bit.ly/3r5CQt9 or run `os.urandom(8).hex()`

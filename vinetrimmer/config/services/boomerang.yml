@@ -1,0 +1,9 @@
+endpoints:
+  consumer: 'https://www.boomerang.com/api/5/consumer/www'
+  login: 'https://www.boomerang.com/api/users/login'
+  metadata: 'https://watch.boomerang.com/api/5/1/series/{title_id}'
+  episodes: 'https://watch.boomerang.com/api/5/series/{title_id}/episodes/'
+  jwt: 'https://watch.boomerang.com/api/5/1/rights/episode/{uuid}'
+  manifest: 'https://watch.boomerang.com/api/5/1/video_manifest_from_jwt/'
+  subtitles: 'https://watch.boomerang.com/api/5/video/{guid}/subtitles/webvtt/'
+  license: 'https://wvd.wbdnbo.net/modlicense'
