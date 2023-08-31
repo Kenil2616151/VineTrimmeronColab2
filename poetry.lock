@@ -515,7 +515,7 @@ python-versions = "*"
 
 [[package]]
 name = "pyyaml"
-version = "5.4.1"
+version = "5.4.0"
 description = "YAML parser and emitter for Python"
 category = "main"
 optional = false
