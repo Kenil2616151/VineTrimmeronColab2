@@ -34,7 +34,7 @@ pymediainfo==5.1.0
 pymysql[rsa]==1.0.2 
 pyreadline==2.1
 pysocks==1.7.1 
-pyyaml==5.4.1 
+pyyaml==6.0.1
 requests==2.26.0 
 requests[socks]==2.26.0 
 six==1.16.0 
