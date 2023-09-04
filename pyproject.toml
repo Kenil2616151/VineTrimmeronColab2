@@ -27,7 +27,7 @@ pycryptodomex = "^3.9.9"
 pyhulu = "^1.1.2"
 pymediainfo = "^5.0.3"
 PyMySQL = { extras = ["rsa"], version = "^1.0.2" }
-PyYAML = "^6.0.1"
+PyYAML = "^5.4.1"
 requests = { extras = ["socks"], version = "^2.26.0" }
 toml = "^0.10.2"
 Unidecode = "^1.2.0"
